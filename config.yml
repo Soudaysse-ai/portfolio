@@ -1,0 +1,109 @@
+backend:
+  name: github
+  repo: TON-USERNAME/TON-REPO   # ← Remplace par ex: soudaysse/portfolio
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+locale: 'fr'
+
+collections:
+
+  # ─────────────────────────────────────
+  # PROFIL — textes de présentation
+  # ─────────────────────────────────────
+  - name: "profil"
+    label: "👤 Mon Profil"
+    files:
+      - label: "Informations générales"
+        name: "general"
+        file: "_data/profil.json"
+        fields:
+          - { label: "Prénom et Nom", name: "nom", widget: "string" }
+          - { label: "Titre du poste (FR)", name: "titre_fr", widget: "string" }
+          - { label: "Titre du poste (EN)", name: "titre_en", widget: "string" }
+          - { label: "Tagline courte (FR)", name: "tagline_fr", widget: "string" }
+          - { label: "Tagline courte (EN)", name: "tagline_en", widget: "string" }
+          - { label: "Description À Propos (FR)", name: "about_fr", widget: "text" }
+          - { label: "Description À Propos (EN)", name: "about_en", widget: "text" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Téléphone", name: "telephone", widget: "string" }
+          - { label: "Localisation (FR)", name: "localisation_fr", widget: "string" }
+          - { label: "Localisation (EN)", name: "localisation_en", widget: "string" }
+          - { label: "URL LinkedIn", name: "linkedin", widget: "string" }
+          - { label: "Années d'expérience", name: "annees_exp", widget: "number" }
+          - { label: "Nombre de projets réalisés", name: "nb_projets", widget: "number" }
+
+  # ─────────────────────────────────────
+  # PROJETS — les 6 cartes portfolio
+  # ─────────────────────────────────────
+  - name: "projets"
+    label: "🗂 Projets"
+    label_singular: "Projet"
+    folder: "_data/projets"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre (FR)", name: "titre_fr", widget: "string" }
+      - { label: "Titre (EN)", name: "titre_en", widget: "string" }
+      - { label: "Client", name: "client", widget: "string" }
+      - label: "Catégorie"
+        name: "categorie"
+        widget: "select"
+        options:
+          - { label: "Réseaux Sociaux", value: "social" }
+          - { label: "Création de Contenu", value: "content" }
+          - { label: "Marketing", value: "marketing" }
+          - { label: "Vidéo", value: "video" }
+          - { label: "Design", value: "design" }
+          - { label: "Web", value: "web" }
+      - { label: "Image du projet", name: "image", widget: "image" }
+      - { label: "Ordre d'affichage (1 à 6)", name: "ordre", widget: "number", default: 1 }
+      - { label: "Visible sur le site ?", name: "actif", widget: "boolean", default: true }
+
+  # ─────────────────────────────────────
+  # SERVICES — les 6 cartes services
+  # ─────────────────────────────────────
+  - name: "services"
+    label: "⚙️ Services"
+    label_singular: "Service"
+    folder: "_data/services"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre (FR)", name: "titre_fr", widget: "string" }
+      - { label: "Titre (EN)", name: "titre_en", widget: "string" }
+      - { label: "Description (FR)", name: "desc_fr", widget: "text" }
+      - { label: "Description (EN)", name: "desc_en", widget: "text" }
+      - { label: "Icône (emoji)", name: "icone", widget: "string" }
+      - { label: "Ordre (1 à 6)", name: "ordre", widget: "number" }
+
+  # ─────────────────────────────────────
+  # EXPÉRIENCES — timeline parcours
+  # ─────────────────────────────────────
+  - name: "experiences"
+    label: "💼 Expériences"
+    label_singular: "Expérience"
+    folder: "_data/experiences"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Poste (FR)", name: "poste_fr", widget: "string" }
+      - { label: "Poste (EN)", name: "poste_en", widget: "string" }
+      - { label: "Entreprise", name: "entreprise", widget: "string" }
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Emploi", value: "emploi" }
+          - { label: "Freelance", value: "freelance" }
+          - { label: "Formation", value: "formation" }
+      - { label: "Date début (FR)", name: "date_debut_fr", widget: "string", hint: "Ex: Nov 2024" }
+      - { label: "Date fin (FR)", name: "date_fin_fr", widget: "string", hint: "Laisser vide si poste actuel" }
+      - { label: "Date début (EN)", name: "date_debut_en", widget: "string", hint: "Ex: Nov 2024" }
+      - { label: "Date fin (EN)", name: "date_fin_en", widget: "string", hint: "Leave empty if current" }
+      - { label: "Poste actuel ?", name: "actuel", widget: "boolean", default: false }
+      - { label: "Description (FR)", name: "desc_fr", widget: "text" }
+      - { label: "Description (EN)", name: "desc_en", widget: "text" }
+      - { label: "Ordre d'affichage", name: "ordre", widget: "number", default: 1 }
