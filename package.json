@@ -1,0 +1,13 @@
+{
+  "name": "portfolio-ssa",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tinacms dev -c \"echo 'Site statique — ouvrir index.html directement'\"",
+    "build": "tinacms build",
+    "start": "tinacms build"
+  },
+  "dependencies": {
+    "tinacms": "^1.6.2"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "buildCommand": "npx tinacms build",
+  "outputDirectory": ".",
+  "installCommand": "npm install",
+  "framework": null
+}
